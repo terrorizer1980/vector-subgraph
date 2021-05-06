@@ -1,0 +1,23 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: ChannelFactory
+    network: mainnet
+    source:
+      address: "0xe561583d3A0dba55569Da8ff2e51a74d435eF372"
+      abi: ChannelFactory
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ChannelCreation
+      abis:
+        - name: ChannelFactory
+          file: ./abis/ChannelFactory.json
+      eventHandlers:
+        - event: ChannelCreation(address)
+          handler: handleChannelCreation
+      file: ./src/mapping.ts
