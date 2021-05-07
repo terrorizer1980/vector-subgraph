@@ -1,5 +1,0 @@
-type Channels @entity {
-  id: ID!
-  count: BigInt!
-  channel: Bytes! # address
-}
