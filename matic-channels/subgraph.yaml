@@ -4,11 +4,11 @@ schema:
 dataSources:
   - kind: ethereum/contract
     name: ChannelFactory
-    network: bsc
+    network: matic
     source:
       address: "0xe561583d3A0dba55569Da8ff2e51a74d435eF372"
       abi: ChannelFactory
-      startBlock: 4929270
+      startBlock: 8930722
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
