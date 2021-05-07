@@ -1,0 +1,13 @@
+type ChannelsEntity @entity {
+  id: ID!
+  channel: Bytes! # address
+  uni: BigInt!
+  dai: BigInt!
+  usdc: BigInt!
+  usdt: BigInt!
+}
+
+type CountEntity @entity {
+id: ID!
+count: BigInt!
+}
