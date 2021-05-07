@@ -1,0 +1,10 @@
+type ChannelsEntity @entity {
+  id: ID!
+  channel: Bytes! # address
+  alice: Bytes! # address
+  bob: Bytes! # address
+  # tokens
+  dai: BigInt!
+  usdc: BigInt!
+  usdt: BigInt!
+}
