@@ -20,6 +20,8 @@ dataSources:
           file: ./abis/ChannelFactory.json
         - name: ERC20Abi
           file: ./abis/ERC20Abi.json
+        - name: ChannelMastercopy
+          file: ./abis/ChannelMastercopy.json
       eventHandlers:
         - event: ChannelCreation(address)
           handler: handleChannelCreation
