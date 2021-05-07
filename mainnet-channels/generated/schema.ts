@@ -12,7 +12,7 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
-export class Channels extends Entity {
+export class ChannelsEntity extends Entity {
   constructor(id: string) {
     super();
     this.set("id", Value.fromString(id));
@@ -20,17 +20,75 @@ export class Channels extends Entity {
 
   save(): void {
     let id = this.get("id");
-    assert(id !== null, "Cannot save Channels entity without an ID");
+    assert(id !== null, "Cannot save ChannelsEntity entity without an ID");
     assert(
       id.kind == ValueKind.STRING,
-      "Cannot save Channels entity with non-string ID. " +
+      "Cannot save ChannelsEntity entity with non-string ID. " +
         'Considering using .toHex() to convert the "id" to a string.'
     );
-    store.set("Channels", id.toString(), this);
+    store.set("ChannelsEntity", id.toString(), this);
   }
 
-  static load(id: string): Channels | null {
-    return store.get("Channels", id) as Channels | null;
+  static load(id: string): ChannelsEntity | null {
+    return store.get("ChannelsEntity", id) as ChannelsEntity | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get channel(): Bytes {
+    let value = this.get("channel");
+    return value.toBytes();
+  }
+
+  set channel(value: Bytes) {
+    this.set("channel", Value.fromBytes(value));
+  }
+
+  get dai(): BigInt {
+    let value = this.get("dai");
+    return value.toBigInt();
+  }
+
+  set dai(value: BigInt) {
+    this.set("dai", Value.fromBigInt(value));
+  }
+
+  get usdc(): BigInt {
+    let value = this.get("usdc");
+    return value.toBigInt();
+  }
+
+  set usdc(value: BigInt) {
+    this.set("usdc", Value.fromBigInt(value));
+  }
+}
+
+export class CountEntity extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save CountEntity entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save CountEntity entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("CountEntity", id.toString(), this);
+  }
+
+  static load(id: string): CountEntity | null {
+    return store.get("CountEntity", id) as CountEntity | null;
   }
 
   get id(): string {
@@ -49,14 +107,5 @@ export class Channels extends Entity {
 
   set count(value: BigInt) {
     this.set("count", Value.fromBigInt(value));
-  }
-
-  get channel(): Bytes {
-    let value = this.get("channel");
-    return value.toBytes();
-  }
-
-  set channel(value: Bytes) {
-    this.set("channel", Value.fromBytes(value));
   }
 }
