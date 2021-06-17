@@ -1,0 +1,28 @@
+{
+  "name": "vector-subgraph",
+  "version": "1.0.0",
+  "keywords": [
+    "connext",
+    "vector",
+    "ethereum",
+    "react",
+    "workspaces",
+    "yarn"
+  ],
+  "private": true,
+  "scripts": {
+    "bsc:codegen": "yarn workspace @vector-subgraph/bsc-channels codegen",
+    "bsc:build": "yarn workspace @vector-subgraph/bsc-channels build",
+    "react-app:build": "yarn workspace @vector-subgraph/react-app build",
+    "react-app:eject": "yarn workspace @vector-subgraph/react-app eject",
+    "react-app:ipfs": "yarn workspace @vector-subgraph/react-app ipfs",
+    "react-app:start": "yarn workspace @vector-subgraph/react-app start",
+    "react-app:test": "yarn workspace @vector-subgraph/react-app test",
+    "clean": "rm -rf node_modules* && rm -rf modules/*/node_modules* modules/*/dist* modules/*/build*"
+  },
+  "workspaces": {
+    "packages": [
+      "modules/*"
+    ]
+  }
+}
